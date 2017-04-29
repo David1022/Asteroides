@@ -1,0 +1,20 @@
+<resources>
+    <!--App-->
+    <string name="app_name">Asteroides</string>
+    <!--Actividad principal/menu-->
+    <string name="jugar">Jugar</string>
+    <string name="configuracion">Configuracion</string>
+    <string name="acercaDe">Acerca de</string>
+    <string name="salir">Salir</string>
+    <!--Preferencias-->
+    <string name="reproducirMusica">Reproducir Música</string>
+    <string name="sumarioMuscia">Se reproduce música de fondo</string>
+    <!--Dialogo AcercaDe-->
+    <string name="textoAcercaDe">Esta aplicación ha sido diseñada por David para Inar</string>
+    <string name="aceptar">Aceptar</string>
+    <!--Dialogo confirmación salir-->
+    <string name="confirmacionSalir">"¿Realmente desea abandonar el juego?"</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.david.asteroides.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/margenBotones">
+
+        <TextView
+            android:text="@string/app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:paddingBottom="@dimen/margenTexto"/>
+
+        <Button
+            android:id="@+id/botonJugar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jugar"/>
+
+        <Button
+            android:id="@+id/botonConfiguracion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/configuracion"/>
+
+        <Button
+            android:id="@+id/botonAcercaDe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/acercaDe"/>
+
+        <Button
+            android:id="@+id/botonSalir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/salir"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
