@@ -32,12 +32,12 @@ public class Grafico {
     }
     public void dibujaGrafico(Canvas canvas){
 
-        int x=(int) (cenX - ancho/2);
-        int y=(int) (cenY - alto/2);
+        int x=(int) (cenX + ancho/2);
+        int y=(int) (cenY + alto/2);
         drawable.setBounds((int)cenX, (int)cenY,
                 (int)cenX+ancho, (int)cenY+alto);
         canvas.save();
-        canvas.rotate((float) angulo,(float) cenX,(float) cenY);
+        canvas.rotate((float) angulo,(float) x,(float) y);
         drawable.draw(canvas);
         canvas.restore();
         int rInval = (int) Math.hypot(ancho,alto)/2 + MAX_VELOCIDAD;

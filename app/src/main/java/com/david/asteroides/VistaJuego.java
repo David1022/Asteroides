@@ -15,12 +15,12 @@ import java.util.Vector;
 
 public class VistaJuego extends View {
 
-    ////////  ASTEROIDES  ///////
+    //************  ASTEROIDES  ************
     private Vector <Grafico> asteroides;      // Vector con los asteroides
     private int numAsteroides = 5; // Numero inicial de asteroides
     private int numFragmentos = 3;  // Fragmentos en los que se divide
 
-    ////////  NAVE  ///////
+    //************  NAVE  ************
     private Grafico nave;           // Grafico de la nave
     private int giroNave;           // Incremento de direccion
     private float aceleracionNave;  // aumento de velocidad
@@ -29,7 +29,7 @@ public class VistaJuego extends View {
     private static final int PASO_GIRO_NAVE = 5;
     private static final float PASO_ACELERACION_NAVE = 0.5f;
 
-    // //// THREAD Y TIEMPO //////
+    //************  THREAD Y TIEMPO  ************
     // Thread encargado de procesar el juego
     private ThreadJuego thread = new ThreadJuego();
     // Cada cuanto queremos procesar cambios (ms)
