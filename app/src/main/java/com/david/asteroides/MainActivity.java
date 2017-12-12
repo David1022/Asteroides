@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView texto = (TextView) findViewById(R.id.textView);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.tweenanimation);
 
         Button bJugar = (Button) findViewById(R.id.botonJugar);
         bJugar.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 salir();
             }
         });
+
+        texto.startAnimation(animation);
 
     }
 
