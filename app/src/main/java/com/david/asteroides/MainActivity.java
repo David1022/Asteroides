@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView texto = (TextView) findViewById(R.id.textView);
+        TextView texto = (TextView) findViewById(R.id.title);
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.tweenanimation);
 
         Button bJugar = (Button) findViewById(R.id.botonJugar);

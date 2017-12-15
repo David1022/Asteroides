@@ -71,7 +71,6 @@ public class VistaJuego extends View implements SensorEventListener {
         drawableNave = context.getResources().getDrawable(R.drawable.nave);
         nave = new Grafico(this, drawableNave);
         asteroides = new Vector <Grafico> ();
-        for (int i=0; i<numAsteroides; i++){
 
         // Se dibujan los gráficos (asteroides y nave)
         Drawable drawableAsteroide = context.getResources().getDrawable(R.drawable.asteroide1);
@@ -91,7 +90,7 @@ public class VistaJuego extends View implements SensorEventListener {
         // Se registra el sensor de orientación
         SensorManager mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> listSensors = mSensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
-        if (listSensors.isEmpty()) {
+        if (!listSensors.isEmpty()) {
             Sensor orientationSensor = listSensors.get(0);
             mSensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_GAME);
         }
@@ -163,9 +162,6 @@ public class VistaJuego extends View implements SensorEventListener {
 
     }
 
-    public void actualizaFisica(){
-
-        long ahora=System.currentTimeMillis();
     public void actualizaFisica() {
         long ahora = System.currentTimeMillis();
 
