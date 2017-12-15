@@ -2,9 +2,9 @@ package com.david.asteroides;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -46,20 +45,17 @@ public class MainActivity extends AppCompatActivity {
                 salir();
             }
         });
-
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_inicio, menu);
-        return true;
 
+        return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.preferencias) {
             abrirConfiguracion();
@@ -69,26 +65,21 @@ public class MainActivity extends AppCompatActivity {
             abrirAcercaDe();
             return true;
         }
-        return super.onOptionsItemSelected(item);
 
+        return super.onOptionsItemSelected(item);
     }
 
     public void abrirJugar() {
-
         Intent intent = new Intent(this, Juego.class);
         startActivity(intent);
-
     }
 
-    public void abrirConfiguracion(){
-
+    public void abrirConfiguracion() {
         Intent intent = new Intent(this, Preferencias.class);
         startActivity(intent);
-
     }
 
-    public void abrirAcercaDe(){
-
+    public void abrirAcercaDe() {
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         dialogo.setTitle(R.string.acercaDe);
         dialogo.setMessage(R.string.textoAcercaDe);
@@ -99,27 +90,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         dialogo.show();
-
     }
 
-    public void salir(){
-
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-        dialogo1.setTitle(R.string.salir);
-        dialogo1.setMessage(R.string.confirmacionSalir);
-        dialogo1.setCancelable(false);
-        dialogo1.setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
+    public void salir() {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle(R.string.salir);
+        dialogo.setMessage(R.string.confirmacionSalir);
+        dialogo.setCancelable(false);
+        dialogo.setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 finish();
             }
         });
-        dialogo1.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+        dialogo.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 dialogo1.cancel();
             }
         });
-        dialogo1.show();
-
+        dialogo.show();
     }
 
 }
