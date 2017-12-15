@@ -1,66 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.david.asteroides.MainActivity">
 
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="@dimen/margenBotones"
-        android:stretchColumns="*">
-
         <TextView
+            android:id="@+id/title"
             android:text="@string/app_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margenTexto"
+            android:paddingBottom="@dimen/margenTexto"
             android:gravity="center"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:padding="@dimen/margenTexto"/>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/margenTexto" />
 
             <Button
                 android:id="@+id/botonJugar"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/medidaBoton"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margenBotones"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/botonConfiguracion"
                 android:text="@string/jugar"/>
 
             <Button
                 android:id="@+id/botonConfiguracion"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/medidaBoton"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margenBotones"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintStart_toStartOf="@id/botonJugar"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/configuracion"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
 
             <Button
                 android:id="@+id/botonAcercaDe"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/medidaBoton"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margenBotones"
+                app:layout_constraintTop_toBottomOf="@+id/botonJugar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/botonSalir"
                 android:text="@string/acercaDe"/>
 
             <Button
                 android:id="@+id/botonSalir"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/medidaBoton"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margenBotones"
+                app:layout_constraintTop_toBottomOf="@+id/botonConfiguracion"
+                app:layout_constraintStart_toStartOf="@id/botonAcercaDe"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/salir"/>
 
-        </TableRow>
-
-    </TableLayout>
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

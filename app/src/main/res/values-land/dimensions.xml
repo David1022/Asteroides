@@ -2,4 +2,5 @@
 <resources>
     <dimen name="margenBotones">50dp</dimen>
     <dimen name="margenTexto">20dp</dimen>
+    <dimen name="medidaBoton">150dp</dimen>
 </resources>
