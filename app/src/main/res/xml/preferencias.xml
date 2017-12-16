@@ -3,21 +3,28 @@
 
     <CheckBoxPreference
         android:key="musica"
-        android:title="@string/reproducirMusica"
-        android:summary="Reproducir musica de fondo"/>
+        android:summary="Reproducir musica de fondo"
+        android:title="@string/reproducirMusica" />
 
     <ListPreference
-        android:key="graficos"
-        android:title="Tipo de gráficos"
-        android:summary="Se escoge la representación de gráficos"
+        android:defaultValue="0"
+        android:entries="@array/tiposEntrada"
+        android:entryValues="@array/tiposEntradaValores"
+        android:key="entrada"
+        android:title="@string/tipoEntrada" />
+
+    <ListPreference
+        android:defaultValue="1"
         android:entries="@array/tiposGraficos"
         android:entryValues="@array/tiposGraficosValores"
-        android:defaultValue="1"/>
+        android:key="graficos"
+        android:summary="Se escoge la representación de gráficos"
+        android:title="Tipo de gráficos" />
 
     <EditTextPreference
+        android:defaultValue="3"
         android:key="fragmentos"
-        android:title="Número de Fragmentos"
         android:summary="En cuantos trozos se divide un asteroide"
-        android:defaultValue="3"/>
+        android:title="Número de Fragmentos" />
 
 </PreferenceScreen>

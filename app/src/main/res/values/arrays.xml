@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="tiposGraficos">
-        <item>vectorial</item>
         <item>bitmap</item>
+        <item>vectorial</item>
         <item>3D</item>
     </string-array>
     <string-array name="tiposGraficosValores">
@@ -10,4 +11,14 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="tiposEntrada">
+        <item>Tactil</item>
+        <item>Sensores</item>
+    </string-array>
+    <string-array name="tiposEntradaValores">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
 </resources>
