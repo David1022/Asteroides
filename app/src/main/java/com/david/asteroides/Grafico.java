@@ -15,11 +15,14 @@ public class Grafico {
     private double incX, incY;   //Velocidad desplazamiento
     private int angulo, rotacion;//Ángulo y velocidad rotación
     private int ancho, alto;     //Dimensiones de la imagen
+
     private int radioColision;   //Para determinar colisión
     //Donde dibujamos el gráfico (usada en view.ivalidate)
     private View view;
+
     // Para determinar el espacio a borrar (view.ivalidate)
     public static final int MAX_VELOCIDAD = 20;
+
 
     public Grafico(View view, Drawable drawable) {
 
