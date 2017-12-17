@@ -33,6 +33,7 @@ public class VistaJuego extends View implements SensorEventListener {
     public static final String KEY_ENTRADA = "entrada";
     public static final String ENTRADA_SENSOR = "1";
     public static final String GRAFICOS_VECTORIAL = "1";
+    public static final int MAX_MISILES = 5;
 
     //************  ASTEROIDES  ************
     private Vector<Grafico> asteroides;      // Vector con los asteroides
@@ -48,11 +49,10 @@ public class VistaJuego extends View implements SensorEventListener {
     private static final int PASO_GIRO_NAVE = 5;
     private static final float PASO_ACELERACION_NAVE = 0.5f;
 
-    //************  NAVE  ************
-    private Grafico misil;
-    private static int PASO_VELOCIDAD_MISIL = 12;
-    private boolean misilActivo = false;
-    private int tiempoMisil;
+    //************  MISIL  ************
+    private Vector<Grafico> misiles;
+    private Vector<Integer> tiempoMisiles;
+    private static int PASO_VELOCIDAD_MISIL = 18;
 
     //************  THREAD Y TIEMPO  ************
     // Thread encargado de procesar el juego
@@ -104,7 +104,8 @@ public class VistaJuego extends View implements SensorEventListener {
         }
         asteroides = new Vector<Grafico>();
         nave = new Grafico(this, drawableNave);
-        misil = new Grafico(this, drawableMisil);
+        misiles = new Vector<Grafico>();
+        tiempoMisiles = new Vector<Integer>();
 
         for (int i = 0; i < numAsteroides; i++) {
             Grafico asteroide = new Grafico(this, drawableAsteroide);
@@ -140,11 +141,13 @@ public class VistaJuego extends View implements SensorEventListener {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        nave.dibujaGrafico(canvas);
+
         for (Grafico asteroide : asteroides) {
             asteroide.dibujaGrafico(canvas);
         }
-        nave.dibujaGrafico(canvas);
-        if (misilActivo) {
+
+        for (Grafico misil : misiles) {
             misil.dibujaGrafico(canvas);
         }
     }
@@ -226,17 +229,19 @@ public class VistaJuego extends View implements SensorEventListener {
         }
 
         // Actualizamos posición misil
-        if (misilActivo) {
+        for (int i = 0; i < misiles.size(); i++) {
+            Grafico misil = misiles.get(i);
             misil.incrementaPos(retardo);
-            tiempoMisil--;
-            if (tiempoMisil < 0) {
-                misilActivo = false;
-            } else {
-                for (int i = 0; i < asteroides.size(); i++) {
-                    if (misil.verificaColision(asteroides.elementAt(i))) {
-                        destruyeAsteroide(i);
-                        break;
-                    }
+            tiempoMisiles.set(i, (tiempoMisiles.get(i) - 1));
+            if (tiempoMisiles.get(i) < 0) {
+                misiles.remove(i);
+                tiempoMisiles.remove(i);
+            }
+            for (int j = 0; j < asteroides.size(); j++) {
+                if (misil.verificaColision(asteroides.elementAt(j))) {
+                    destruyeAsteroide(j);
+                    misiles.remove(i);
+                    break;
                 }
             }
         }
@@ -245,7 +250,6 @@ public class VistaJuego extends View implements SensorEventListener {
 
     private void destruyeAsteroide(int i) {
         asteroides.remove(i);
-        misilActivo = false;
     }
 
     @Override
@@ -308,13 +312,17 @@ public class VistaJuego extends View implements SensorEventListener {
     }
 
     private void activaMisil() {
-        misil.setPosX(nave.getPosX() + nave.getAncho() / 2 - misil.getAncho() / 2);
-        misil.setPosY(nave.getPosY() + nave.getAlto() / 2 - misil.getAlto() / 2);
-        misil.setAngulo(nave.getAngulo());
-        misil.setIncX(Math.cos(Math.toRadians(misil.getAngulo())) * PASO_VELOCIDAD_MISIL);
-        misil.setIncY(Math.sin(Math.toRadians(misil.getAngulo())) * PASO_VELOCIDAD_MISIL);
-        tiempoMisil = (int) Math.min(this.getWidth() / Math.abs(misil.getIncX()), this.getHeight() / Math.abs(misil.getIncY())) - 2;
-        misilActivo = true;
+        if (misiles.size() < MAX_MISILES) {
+            Grafico misil = new Grafico(this, drawableMisil);
+            misil.setPosX(nave.getPosX() + nave.getAncho() / 2 - misil.getAncho() / 2);
+            misil.setPosY(nave.getPosY() + nave.getAlto() / 2 - misil.getAlto() / 2);
+            misil.setAngulo(nave.getAngulo());
+            misil.setIncX(Math.cos(Math.toRadians(misil.getAngulo())) * PASO_VELOCIDAD_MISIL);
+            misil.setIncY(Math.sin(Math.toRadians(misil.getAngulo())) * PASO_VELOCIDAD_MISIL);
+            Integer tiempoMisil = (int) Math.min(this.getWidth() / Math.abs(misil.getIncX()), this.getHeight() / Math.abs(misil.getIncY())) - 2;
+            misiles.add(misil);
+            tiempoMisiles.add(tiempoMisil);
+        }
     }
 
 
