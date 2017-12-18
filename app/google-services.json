@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "853121819717",
+    "firebase_url": "https://asteroides-b4336.firebaseio.com",
+    "project_id": "asteroides-b4336",
+    "storage_bucket": "asteroides-b4336.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853121819717:android:5099dba98fe6b329",
+        "android_client_info": {
+          "package_name": "com.david.asteroides"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853121819717-vl4nb7g43p7rd6v491jn737taqjlgf07.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.david.asteroides",
+            "certificate_hash": "7f1d6943ef48097a3732ceb54370315a03b04481"
+          }
+        },
+        {
+          "client_id": "853121819717-oa3767pqui9sh9r466si1a56g9tbsg10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8TZ-IHMKHSj2cn3nMYlok7n9diiwtWTY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853121819717-oa3767pqui9sh9r466si1a56g9tbsg10.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
